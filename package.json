@@ -1,0 +1,28 @@
+{
+  "name": "reuse-pending-promise",
+  "version": "0.1.0",
+  "description": "Re-use pending promises",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twalker/reuse-pending-promise.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/twalker/reuse-pending-promise#readme",
+  "bugs": {
+    "url": "https://github.com/twalker/reuse-pending-promise/issues"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2",
+    "rollup": "^0.56.5",
+    "rollup-plugin-babel": "^3.0.3"
+  }
+}
