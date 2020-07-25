@@ -1,4 +1,5 @@
 'use strict'
+var foo;
 
 module.exports = (fn, getKey) => (...args) => {
   const cacheKey =
@@ -12,4 +13,4 @@ module.exports = (fn, getKey) => (...args) => {
   }
 
   return fn.pending.get(cacheKey)
-}
+};
