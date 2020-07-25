@@ -1,9 +1,11 @@
 {
   "name": "reuse-pending-promise",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Re-use pending promises",
   "main": "dist/index.js",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/twalker/reuse-pending-promise.git"
