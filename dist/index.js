@@ -1,6 +1,6 @@
 'use strict';
 
-var reuse = function reuse(fn, getKey) {
+var reusePendingPromise = function reusePendingPromise(fn, getKey) {
   return function () {
     var cacheKey = typeof getKey === 'function' ? getKey.apply(void 0, arguments) : (arguments.length <= 0 ? undefined : arguments[0]) || 'noargs';
     fn.pending = fn.pending || new Map();
@@ -16,5 +16,5 @@ var reuse = function reuse(fn, getKey) {
 };
 
 module.exports = {
-  reusePendingPromise: reuse
+  reusePendingPromise: reusePendingPromise
 };

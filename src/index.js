@@ -1,6 +1,6 @@
 'use strict'
 
-const reuse = (fn, getKey) => (...args) => {
+const reusePendingPromise = (fn, getKey) => (...args) => {
   const cacheKey =
     typeof getKey === 'function' ? getKey(...args) : args[0] || 'noargs'
   fn.pending = fn.pending || new Map()
@@ -14,4 +14,4 @@ const reuse = (fn, getKey) => (...args) => {
   return fn.pending.get(cacheKey)
 }
 
-module.exports = {reusePendingPromise: reuse}
+module.exports = {reusePendingPromise}
