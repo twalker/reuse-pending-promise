@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (fn, getKey) {
+var reusePendingPromise = function reusePendingPromise(fn, getKey) {
   return function () {
     var cacheKey = typeof getKey === 'function' ? getKey.apply(void 0, arguments) : (arguments.length <= 0 ? undefined : arguments[0]) || 'noargs';
     fn.pending = fn.pending || new Map();
@@ -13,4 +13,8 @@ module.exports = function (fn, getKey) {
 
     return fn.pending.get(cacheKey);
   };
+};
+
+module.exports = {
+  reusePendingPromise: reusePendingPromise
 };
