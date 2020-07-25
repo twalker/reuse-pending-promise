@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Re-use pending promises",
   "main": "dist/index.js",
+  "files": ["dist/**/*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/twalker/reuse-pending-promise.git"
@@ -14,6 +15,9 @@
     "url": "https://github.com/twalker/reuse-pending-promise/issues"
   },
   "scripts": {
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags",
     "build": "rollup -c",
     "test": "jest",
     "lint": "xo --fix"
