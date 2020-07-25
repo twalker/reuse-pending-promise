@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/twalker/reuse-pending-promise.git"
   },
-  "author": "",
+  "author": "Tim Walker",
   "license": "MIT",
   "homepage": "https://github.com/twalker/reuse-pending-promise#readme",
   "bugs": {
@@ -18,11 +18,11 @@
     "test": "jest"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "jest": "^22.4.2",
-    "rollup": "^0.56.5",
-    "rollup-plugin-babel": "^3.0.3"
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "jest": "^26.1.0",
+    "rollup": "^2.23.0"
   }
 }
