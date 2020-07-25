@@ -1,8 +1,8 @@
 const reuse = require('../src');
 
 describe('src/shared/universal/reuse-pending-promise', () => {
-  const createFetchData = ({ success = true }) => () => {
-    return success ? Promise.resolve() : Promise.reject();
+  const createFetchData = ({ success = true, result = {}}) => () => {
+    return success ? Promise.resolve(result) : Promise.reject(result);
   };
 
   it('reuses existing promises that are still pending', () => {
@@ -58,4 +58,23 @@ describe('src/shared/universal/reuse-pending-promise', () => {
       expect(promise1).not.toBe(promise2);
     });
   });
+
+  it('fulfills with original', () => {
+    const expected = {data: 'foobar'};
+    const fetchData = createFetchData({ success: true, result: expected });
+    const reusedFetchData = reuse(fetchData);
+    return reusedFetchData().then((data) => {
+      expect(data).toEqual(expected);
+    })
+  });
+
+  it('rejects with original error', () => {
+    const expected = new Error('Bang!')
+    const fetchData = createFetchData({ success: false, result: expected });
+    const reusedFetchData = reuse(fetchData);
+    return reusedFetchData().catch((data) => {
+      expect(data).toEqual(expected);
+    })
+  });
+
 });

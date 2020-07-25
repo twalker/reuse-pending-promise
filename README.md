@@ -23,3 +23,5 @@ reusedFetchData() // fetch is made
 // The function is called 4 times, but the only 2 fetches are made.
 ```
 See the unit test for usage examples.
+
+![Node.js CI](https://github.com/twalker/reuse-pending-promise/workflows/Node.js%20CI/badge.svg)
