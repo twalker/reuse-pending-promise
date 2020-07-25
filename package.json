@@ -15,7 +15,19 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "jest"
+    "test": "jest",
+    "lint": "xo --fix"
+  },
+  "xo": {
+    "space": true,
+    "semicolon": false,
+    "prettier": true,
+    "overrides": [
+      {
+        "files": "test/*.js",
+        "env": ["es2020", "node", "jest"]
+      }
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -23,6 +35,7 @@
     "@rollup/plugin-babel": "^5.1.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "jest": "^26.1.0",
-    "rollup": "^2.23.0"
+    "rollup": "^2.23.0",
+    "xo": "^0.32.1"
   }
 }
