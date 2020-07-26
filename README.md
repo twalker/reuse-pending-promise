@@ -57,7 +57,7 @@ The `getKey` argument can be used to cache variations based on the `fn`'s argume
 argument in [lodash.memoize](https://lodash.com/docs/4.17.11#memoize).
 By default the first argument is used as the cache key. 
 
-Here's an example query where promises are re-used only if the `lang` and `country` arguments match:
+Here's an example where promises are re-used only if the `lang` and `country` arguments match:
 
 ```javascript
 const fetchData = (lang, country) => fetch(`http://example.com/${country}/${lang}`)
