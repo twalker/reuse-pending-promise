@@ -1,6 +1,6 @@
 {
   "name": "reuse-pending-promise",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Re-use pending promises",
   "main": "dist/index.js",
   "files": [
