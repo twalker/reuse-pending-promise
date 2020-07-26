@@ -1,9 +1,10 @@
 const {reusePendingPromise: reuse} = require('../src')
 
 describe('reuse-pending-promise', () => {
-  const createFetchData = ({success = true, result = {}}) => () => {
-    return success ? Promise.resolve(result) : Promise.reject(result)
-  }
+  const createFetchData = ({success = true, result = {}}) =>
+    jest.fn(() => {
+      return success ? Promise.resolve(result) : Promise.reject(result)
+    })
 
   it('reuses existing promises that are still pending', () => {
     const fetchData = createFetchData({success: true})
@@ -13,6 +14,7 @@ describe('reuse-pending-promise', () => {
 
     return Promise.all([promise1, promise2]).then(() => {
       expect(promise1).toBe(promise2)
+      expect(fetchData.mock.calls.length).toBe(1)
     })
   })
 
@@ -23,6 +25,7 @@ describe('reuse-pending-promise', () => {
     return promise1.then(() => {
       const promise2 = reusedFetchData()
       expect(promise1).not.toBe(promise2)
+      expect(fetchData.mock.calls.length).toBe(2)
     })
   })
 
