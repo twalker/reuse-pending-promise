@@ -1,6 +1,6 @@
 const {reusePendingPromise: reuse} = require('../src')
 
-describe('src/shared/universal/reuse-pending-promise', () => {
+describe('reuse-pending-promise', () => {
   const createFetchData = ({success = true, result = {}}) => () => {
     return success ? Promise.resolve(result) : Promise.reject(result)
   }
