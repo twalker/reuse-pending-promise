@@ -51,7 +51,7 @@ describe('src/shared/universal/reuse-pending-promise', () => {
   it('uses result of getKey as cache key if provided', () => {
     const fetchData = createFetchData({success: true})
     const getCacheKey = ({lang, region}) => `${lang}${region}`
-    const reusedFetchData = reuse(fetchData, getCacheKey)
+    const reusedFetchData = reuse(fetchData, {getKey: getCacheKey})
     const promise1 = reusedFetchData({lang: 'foo', region: 'bar'})
     const promise2 = reusedFetchData({lang: 'baz', region: 'qux'})
     return Promise.all([promise1, promise2]).then(() => {

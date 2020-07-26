@@ -8,7 +8,7 @@ It decorates the `fn` (a thennable) with a cache of pending promises.
 The cached promise is returned until it has been fulfilled.
 
 ```javascript
-reusePendingPromise(fn[, getKey])
+reusePendingPromise(fn[, options])
 ```
 
 ![Node.js CI](https://github.com/twalker/reuse-pending-promise/workflows/Node.js%20CI/badge.svg)
@@ -52,10 +52,10 @@ Promise
 // 20 seconds later, the last call will resolve, having invoked `myFn` a second time.
 // // callCount: 2
 ```
-### Using `getKey` for variations
-The `getKey` argument can be used to cache variations based on the `fn`'s arguments, similar to the `resolver`
+### Using `getCacheKey` option for variations
+The `getCacheKey` option can be used to cache variations based on the `fn`'s arguments, similar to the `resolver`
 argument in [lodash.memoize](https://lodash.com/docs/4.17.11#memoize).
-By default the first argument is used as the cache key. 
+By default the first argument is used as the cache key.
 
 Here's an example where promises are re-used only if the `lang` and `country` arguments match:
 
@@ -63,7 +63,7 @@ Here's an example where promises are re-used only if the `lang` and `country` ar
 const fetchData = (lang, country) => fetch(`http://example.com/${country}/${lang}`)
 const getCacheKey = (lang, country) => `${lang}${region}`
 
-const reusedFetchData = reusePendingPromise(fetchData, getCacheKey)
+const reusedFetchData = reusePendingPromise(fetchData, { getCacheKey })
 // promise1 and promise2 will share the same promise returned by fetch,
 // since they share a cache key.
 const promise1 = reusedFetchData('en', 'canada')
