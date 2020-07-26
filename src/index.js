@@ -5,8 +5,8 @@ const defaultOptions = {
 }
 
 const reusePendingPromise = (fn, options = {}) => (...args) => {
-  const opts = {...defaultOptions, ...options}
-  const cacheKey = opts.getCacheKey(...args)
+  const options_ = {...defaultOptions, ...options}
+  const cacheKey = options_.getCacheKey(...args)
 
   fn.pending = fn.pending || new Map()
   if (!fn.pending.has(cacheKey)) {
