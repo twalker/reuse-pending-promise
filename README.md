@@ -11,13 +11,15 @@ The cached promise is returned until it has been fulfilled.
 reusePendingPromise(fn[, getKey])
 ```
 
+![Node.js CI](https://github.com/twalker/reuse-pending-promise/workflows/Node.js%20CI/badge.svg)
+
 ## Install
 
 ```sh
 npm install reuse-pending-promise
 ```
 
-## Basic Usage
+## Example usage:
 ```javascript
 const { reusePendingPromise } = require('reuse-pending-promise')
 
@@ -50,7 +52,7 @@ Promise
 // 20 seconds later, the last call will resolve, having invoked `myFn` is a second time.
 // // callCount: 2
 ```
-## Advanced Usage
+### Using `getKey` for variations
 The `getKey` argument can be used to cache variations, similar to the `resolver`
 argument in [lodash.memoize](https://lodash.com/docs/4.17.11#memoize).
 By default the first argument is used as the cache key.
