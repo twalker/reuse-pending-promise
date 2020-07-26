@@ -1,8 +1,13 @@
 'use strict'
 
-const reusePendingPromise = (fn, getKey) => (...args) => {
-  const cacheKey =
-    typeof getKey === 'function' ? getKey(...args) : args[0] || 'noargs'
+const defaultOptions = {
+  getCacheKey: (...args) => args[0] || 'noargs'
+}
+
+const reusePendingPromise = (fn, options = {}) => (...args) => {
+  const opts = {...defaultOptions, ...options}
+  const cacheKey = opts.getCacheKey(...args)
+
   fn.pending = fn.pending || new Map()
   if (!fn.pending.has(cacheKey)) {
     fn.pending.set(
