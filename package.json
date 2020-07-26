@@ -22,7 +22,7 @@
     "postversion": "git push && git push --tags",
     "build": "rollup -c",
     "test": "jest",
-    "lint": "xo --fix"
+    "lint": "xo"
   },
   "xo": {
     "space": true,

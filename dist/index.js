@@ -56,11 +56,11 @@ var defaultOptions = {
 };
 
 var reusePendingPromise = function reusePendingPromise(fn) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var userOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return function () {
-    var options_ = _objectSpread2(_objectSpread2({}, defaultOptions), options);
+    var options = _objectSpread2(_objectSpread2({}, defaultOptions), userOptions);
 
-    var cacheKey = options_.getCacheKey.apply(options_, arguments);
+    var cacheKey = options.getCacheKey.apply(options, arguments);
     fn.pending = fn.pending || new Map();
 
     if (!fn.pending.has(cacheKey)) {

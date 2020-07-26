@@ -4,9 +4,9 @@ const defaultOptions = {
   getCacheKey: (...args) => args[0] || 'noargs'
 }
 
-const reusePendingPromise = (fn, options = {}) => (...args) => {
-  const options_ = {...defaultOptions, ...options}
-  const cacheKey = options_.getCacheKey(...args)
+const reusePendingPromise = (fn, userOptions = {}) => (...args) => {
+  const options = {...defaultOptions, ...userOptions}
+  const cacheKey = options.getCacheKey(...args)
 
   fn.pending = fn.pending || new Map()
   if (!fn.pending.has(cacheKey)) {
