@@ -49,13 +49,15 @@ Promise
 // 10 seconds later, the initial three calls resolve but the `myFn` is only invoked once:
 // // callCount: 1
 
-// 20 seconds later, the last call will resolve, having invoked `myFn` is a second time.
+// 20 seconds later, the last call will resolve, having invoked `myFn` a second time.
 // // callCount: 2
 ```
 ### Using `getKey` for variations
-The `getKey` argument can be used to cache variations, similar to the `resolver`
+The `getKey` argument can be used to cache variations based on the `fn`'s arguments, similar to the `resolver`
 argument in [lodash.memoize](https://lodash.com/docs/4.17.11#memoize).
-By default the first argument is used as the cache key.
+By default the first argument is used as the cache key. 
+
+Here's an example query where promises are re-used only if the `lang` and `country` arguments match:
 
 ```javascript
 const fetchData = (lang, country) => fetch(`http://example.com/${country}/${lang}`)
