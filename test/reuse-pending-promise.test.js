@@ -59,7 +59,7 @@ describe('src/shared/universal/reuse-pending-promise', () => {
     })
   })
 
-  it('fulfills with original', () => {
+  it('resolves with original result', () => {
     const expected = {data: 'foobar'}
     const fetchData = createFetchData({success: true, result: expected})
     const reusedFetchData = reuse(fetchData)
