@@ -5,7 +5,7 @@ const config = {
   plugins: [resolve(), babel({babelHelpers: 'bundled'})],
   input: './src/index.js',
   output: {
-    file: 'dist/index.js',
+    file: './dist/index.js',
     format: 'cjs'
   }
 }
