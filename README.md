@@ -61,7 +61,7 @@ Here's an example where promises are re-used only if the `lang` and `country` ar
 
 ```javascript
 const fetchData = (lang, country) => fetch(`http://example.com/${country}/${lang}`)
-const getCacheKey = (lang, country) => `${lang}${region}`
+const getCacheKey = (lang, country) => `${lang}${country}`
 
 const reusedFetchData = reusePendingPromise(fetchData, { getCacheKey })
 // promise1 and promise2 will share the same promise returned by fetch,
