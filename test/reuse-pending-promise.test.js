@@ -1,4 +1,4 @@
-import {reusePendingPromise as reuse} from '../src/reuse-pending-promise'
+import {reusePendingPromise as reuse} from '../src/reuse-pending-promise.js'
 
 describe('reuse-pending-promise', () => {
   const createFetchData = ({success = true, result = {}}) =>

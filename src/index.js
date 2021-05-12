@@ -1,1 +1,1 @@
-export * from './reuse-pending-promise'
+export * from './reuse-pending-promise.js'
