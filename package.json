@@ -37,6 +37,9 @@
           "jest"
         ]
       }
+    ],
+    "ignores": [
+      ".github"
     ]
   },
   "devDependencies": {
