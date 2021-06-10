@@ -28,8 +28,7 @@ jobs:
     - name: lint
       uses: wearerequired/lint-action@v1.10.0
       with:
-        github_token: ${{ secrets.github_token }}
         xo: true
-        auto_fix: true
+        auto_fix: false
     - run: npm run build --if-present
     - run: npm test
