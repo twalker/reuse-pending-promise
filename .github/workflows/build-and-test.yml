@@ -26,10 +26,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - name: lint
-      uses: samuelmeuli/lint-action@v1
+      uses: wearerequired/lint-action@v1.10.0
       with:
         github_token: ${{ secrets.github_token }}
         xo: true
-        auto_fix: false
+        auto_fix: true
     - run: npm run build --if-present
     - run: npm test
