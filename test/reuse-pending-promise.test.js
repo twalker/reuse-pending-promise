@@ -2,9 +2,7 @@ import {reusePendingPromise as reuse} from '../src/reuse-pending-promise.js'
 
 describe('reuse-pending-promise', () => {
   const createFetchData = ({success = true, result = {}}) =>
-    jest.fn(() => {
-      return success ? Promise.resolve(result) : Promise.reject(result)
-    })
+    jest.fn(() => (success ? Promise.resolve(result) : Promise.reject(result)))
 
   it('reuses existing promises that are still pending', () => {
     const fetchData = createFetchData({success: true})

@@ -1,5 +1,5 @@
 const defaultOptions = {
-  getCacheKey: (...args) => args[0] || 'noargs'
+  getCacheKey: (...args) => args[0] || 'noargs',
 }
 
 export const reusePendingPromise =
@@ -12,7 +12,7 @@ export const reusePendingPromise =
     if (!fn.pending.has(cacheKey)) {
       fn.pending.set(
         cacheKey,
-        fn(...args).finally(() => fn.pending.delete(cacheKey))
+        fn(...args).finally(() => fn.pending.delete(cacheKey)),
       )
     }
 
