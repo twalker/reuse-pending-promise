@@ -1,3 +1,5 @@
+import {jest} from '@jest/globals'
+
 import {reusePendingPromise as reuse} from '../src/reuse-pending-promise.js'
 
 describe('reuse-pending-promise', () => {
