@@ -1,6 +1,6 @@
 {
   "name": "reuse-pending-promise",
-  "version": "0.4.2",
+  "version": "1.0.0",
   "description": "Re-use pending promises",
   "engines": {
     "node": ">= 14.13.1 || >= 16.0.0"
