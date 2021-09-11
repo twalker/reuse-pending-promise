@@ -21,9 +21,9 @@ npm install reuse-pending-promise
 
 ## Example usage:
 ```javascript
-const { reusePendingPromise } = require('reuse-pending-promise')
+import { reusePendingPromise } = from 'reuse-pending-promise'
 
-let callCount = 0;
+let callCount = 0
 // A promise-returning function
 const MyFn = () => {
   callCount++

@@ -2,9 +2,14 @@
   "name": "reuse-pending-promise",
   "version": "0.4.2",
   "description": "Re-use pending promises",
-  "main": "dist/index.js",
+  "engines": {
+    "node": ">= 14.13.1 || >= 16.0.0"
+  },
+  "type": "module",
+  "exports": "./src/reuse-pending-promise.js",
   "files": [
-    "dist/**/*"
+    "src",
+    "*.md"
   ],
   "repository": {
     "type": "git",
@@ -18,21 +23,25 @@
   },
   "scripts": {
     "preversion": "npm test",
-    "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags",
-    "build": "rollup -c",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "lint": "xo"
+  },
+  "jest": {
+    "transform": {}
   },
   "xo": {
     "space": true,
     "semicolon": false,
     "prettier": true,
+    "rules": {
+      "promise/prefer-await-to-then": "warn"
+    },
     "overrides": [
       {
         "files": "test/*.js",
         "env": [
-          "es2020",
+          "es2021",
           "node",
           "jest"
         ]
@@ -43,12 +52,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "jest": "^27.0.6",
-    "rollup": "^2.56.2",
+    "jest": "^27.1.1",
     "xo": "^0.44.0"
-  }
+  },
+  "dependencies": {}
 }
